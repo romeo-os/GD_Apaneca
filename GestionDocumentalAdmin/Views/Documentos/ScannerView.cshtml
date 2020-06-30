@@ -1,0 +1,108 @@
+﻿@model GestionDocumentalAdmin.Models.Models.Documentos
+
+@{
+    ViewBag.Title = "Escanear";
+}
+
+
+@section styles
+{
+    <link href="~/Content/css/scanner.css" rel="stylesheet" type="text/css" />
+    <style>
+        img.scanned {
+            height: 200px; /** Sets the display size */
+            margin-right: 12px;
+        }
+
+        div#images {
+            margin-top: 20px;
+        }
+
+        .scanner-panel {
+            border-right: 1px solid #d7d7d7;
+        }
+    </style>
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        window.scannerjs_config = { // must set before including scanner.js to
+            display_install_func: undefined, // specify a func(Boolean show) to be called to show/hide scan app prompt dialog
+            
+            log_level: 1024, // 0 (default): log all;  16: log error only; 1024: log nothing
+
+            scan_app_enabled: true, // true (default): enable scan app; false: disable scan app
+            scan_app_download_url: 'http://asprise.azureedge.net/scanapp/scan-setup.exe', // scan app download url
+            form_field_name_for_img_objects: 'scanedfile' // the name of the form field for direct file uploading
+        };
+    </script>
+    <script src="~/Scripts/scanner.js" type="text/javascript"></script>
+    <script src="~/Scripts/Js/scanner.from.browser.js" type="text/javascript"></script>
+}
+
+@section titleView
+{
+    <h2>Scanear documento</h2>
+}
+
+<div class="row">
+    <div class="col-md-8 scanner-panel h-100">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="alert alert-info" role="alert">
+                    Puede escanear documentos y guardarlos directamente desde este formulario. 
+                    Se necesita tener instalado la aplicación para acceder al escaner de su computadora, <a href="http://asprise.azureedge.net/scanapp/scan-setup.exe" class="alert-link">haga clic aquí</a> para descargalo.<br />
+                    Escanee un archivo y guardelo en formato <b>PDF</b>; el archivo puede tener varias páginas. 
+                </div>
+
+                <button class="btn btn-primary btn-md button-create" style="margin-bottom:10px;">
+                    <i class="fa fa-plus"></i>
+                    Escanear documento
+                </button>
+
+                <div id="images"></div>
+                <div id="server_response"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "modal-form", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.nombreDocumentos, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.nombreDocumentos, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nombreDocumentos, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idTipoDocumento, "Tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idTipoDocumento", ViewData["docType"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idTipoDocumento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idCarpeta, "Carpeta", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("idCarpeta", ViewData["folder"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.idCarpeta, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Guardar" class="btn btn-secondary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

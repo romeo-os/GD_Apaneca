@@ -1,0 +1,46 @@
+﻿@using GestionDocumentalAdmin.Commons;
+@{
+    ViewBag.Title = "TimeLine";
+}
+@section scripts
+{
+    <script src="~/Scripts/TimeLine/ubicarDoc.js" type="text/javascript"></script>
+}
+
+@section styles
+{
+    <link href="~/Content/css/StyleTimeL.css" rel="stylesheet" type="text/css" />
+}
+
+
+
+<div class="row">
+    <div class="columnaAccesos col-10">
+        <div class="contenedor d-flex flex-wrap">
+            <div class="col boton">
+                <li><img src="~/Content/img/ubicarDoc.svg" />
+                @if (FrontUser.TienePermiso(RolesPermisos.Ubicar_documentos))
+                {
+                    @Html.ActionLink("UBICAR DOCUMENTO", "UbicarDocumentosP", "TimeLine")
+                }
+                else {
+                    <a href="#" style="color:#808080;">UBICAR DOCUMENTO</a>
+                }
+                </li>
+            </div>
+            <div class="col boton">
+                <li @*id="button-recibir"*@><img src="~/Content/img/recibirDoc.svg" />
+                @if (FrontUser.TienePermiso(RolesPermisos.Recibir_documentos))
+                {
+                    <a id="button-recibir">RECIBIR DOCUMENTO</a>
+                }
+                else {
+                    <a href="#" style="color:#808080;">RECIBIR DOCUMENTO</a>
+                }
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+
+

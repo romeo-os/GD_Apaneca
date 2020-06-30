@@ -1,0 +1,38 @@
+﻿@using GestionDocumentalAdmin.Commons;
+@{
+    ViewBag.Title = "Mantenimientos";
+}
+
+<link href="~/Content/css/StyleMantenimientos.css" rel="stylesheet" type="text/css" />
+
+<div class="row justify-content-center">
+    <div class="columnaAccesos col">
+        <div class="contenedor d-flex flex-wrap">
+            <div class="col boton">
+                <li><img src="~/Content/img/procedimientos.svg" />
+
+                @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_procedimientos))
+                {
+                     @Html.ActionLink("PROCEDIMIENTOS", "Procedimientos", "Mantenimientos", new { @class = "btnTipoD" })
+                }
+                else {
+                    <a href="#" style="color:#808080;">PROCEDIMIENTOS</a>
+                }
+                </li>
+            </div>
+            <div class="col boton">
+                <li><img src="~/Content/img/tiposDocumentos.svg" />
+                @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_tipos_de_documentos))
+                {
+                     @Html.ActionLink("TIPOS DE DOCUMENTOS", "TiposDoc", "Mantenimientos")
+                }
+                else {
+                    <a href="#" style="color: #808080;">TIPOS DE DOCUMENTOS</a>
+                }
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model GestionDocumentalAdmin.Models.ViewModels.EditarCarpetasViewModel
+@{
+    ViewBag.Title = "EditarCarpeta";
+    Layout = null;
+}
+
+
+
+@using (Html.BeginForm("EditarCarpeta", "Documentos", FormMethod.Post, new { role = "form", @class = "formNusuario", @name = "formularioCarpeta" }))
+{
+    @Html.HiddenFor(c => c.IdCarpeta)
+    @Html.ValidationMessage("erro", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Nombre)
+        <div class="col-md-12">
+            @Html.TextBoxFor(c => c.Nombre, new { @class = "form-control", @id = "TextBoxNombre" })
+            @Html.ValidationMessage("Nombre", new { @class = "text-danger" })<br />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Descripcion)
+        <div class="col-md-12">
+            @Html.TextBoxFor(c => c.Descripcion, new { @class = "form-control", @id = "TextBoxDescripcion" })
+            @Html.ValidationMessage("Descripcion", new { @class = "text-danger" })<br />
+        </div>
+    </div>
+}
+<button class="btn btnAdd btn-primary icon-login-2" type="submit" id="btnAceptar_Modal">Aceptar</button>
+@Html.ActionLink("Cancelar", "Documentos_Principal", "Documentos", null, new { @class = "btn btn-danger icon-cancel" })
+
+<script src="~/Scripts/DocumentosJs/documentos.js"></script>
+

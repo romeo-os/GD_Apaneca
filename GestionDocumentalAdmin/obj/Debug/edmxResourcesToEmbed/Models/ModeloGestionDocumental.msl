@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DBRemoteConnection">
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="DatabaseModel.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="funcion" ColumnName="funcion" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carpetas">
+      <EntityTypeMapping TypeName="DatabaseModel.Carpeta">
+        <MappingFragment StoreEntitySet="Carpeta">
+          <ScalarProperty Name="idCarpeta" ColumnName="idCarpeta" />
+          <ScalarProperty Name="rutaCarpeta" ColumnName="rutaCarpeta" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documentos">
+      <EntityTypeMapping TypeName="DatabaseModel.Documento">
+        <MappingFragment StoreEntitySet="Documentos">
+          <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+          <ScalarProperty Name="nombreDocumentos" ColumnName="nombreDocumentos" />
+          <ScalarProperty Name="rutaDocumento" ColumnName="rutaDocumento" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+          <ScalarProperty Name="idFlujoDocumento" ColumnName="idFlujoDocumento" />
+          <ScalarProperty Name="idCarpeta" ColumnName="idCarpeta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlujoDocumentoes">
+      <EntityTypeMapping TypeName="DatabaseModel.FlujoDocumento">
+        <MappingFragment StoreEntitySet="FlujoDocumento">
+          <ScalarProperty Name="idFlujoDocumento" ColumnName="idFlujoDocumento" />
+          <ScalarProperty Name="idProcedimiento" ColumnName="idProcedimiento" />
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialLogs">
+      <EntityTypeMapping TypeName="DatabaseModel.HistorialLog">
+        <MappingFragment StoreEntitySet="HistorialLog">
+          <ScalarProperty Name="idHistorialLog" ColumnName="idHistorialLog" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historicoes">
+      <EntityTypeMapping TypeName="DatabaseModel.Historico">
+        <MappingFragment StoreEntitySet="Historico">
+          <ScalarProperty Name="idHistorico" ColumnName="idHistorico" />
+          <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+          <ScalarProperty Name="idProcedimiento" ColumnName="idProcedimiento" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PermisoDenegadoes">
+      <EntityTypeMapping TypeName="DatabaseModel.PermisoDenegado">
+        <MappingFragment StoreEntitySet="PermisoDenegado">
+          <ScalarProperty Name="idPermisoD" ColumnName="idPermisoD" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idPermiso" ColumnName="idPermiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisos">
+      <EntityTypeMapping TypeName="DatabaseModel.Permiso">
+        <MappingFragment StoreEntitySet="Permisos">
+          <ScalarProperty Name="idPermiso" ColumnName="idPermiso" />
+          <ScalarProperty Name="modulo" ColumnName="modulo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedimientos">
+      <EntityTypeMapping TypeName="DatabaseModel.Procedimiento">
+        <MappingFragment StoreEntitySet="Procedimientos">
+          <ScalarProperty Name="idProcedimiento" ColumnName="idProcedimiento" />
+          <ScalarProperty Name="procedimiento1" ColumnName="procedimiento" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="DatabaseModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumentoes">
+      <EntityTypeMapping TypeName="DatabaseModel.TipoDocumento">
+        <MappingFragment StoreEntitySet="TipoDocumento">
+          <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+          <ScalarProperty Name="tipoDocumento1" ColumnName="tipoDocumento" />
+          <ScalarProperty Name="descripcionTipoDocumento" ColumnName="descripcionTipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DatabaseModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="deleted_at" ColumnName="deleted_at" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="DatabaseModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

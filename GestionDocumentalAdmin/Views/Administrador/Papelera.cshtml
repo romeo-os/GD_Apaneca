@@ -1,0 +1,137 @@
+﻿@model GestionDocumentalAdmin.Models.Models.Documentos
+@{
+    ViewBag.Title = "Papelera";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Js/papelera.admin.view.js" type="text/javascript"></script>
+}
+
+@section titleView
+{
+    <h2>Papelera</h2>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <table id="table-content" class="display" cellspacing="0" width="100%">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 5%;">#</th>
+                            <th style="width: 30%;">Nombre Archivo</th>
+                            <th style="width: 60%;">Fecha de eliminación</th>
+                            <th style="width: 5%">Opciones</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Sección para agregar el html de los botones, formulario u otros elementos que se necesiten
+    fuera de la vista en primer plano, esto no es visible y se agrega fuera del body de la página*@
+@section utilHtml
+{
+    <div id="action-buttons" style="display: none;">
+        <div class="btn-group" data-row="{data}">
+            <button class='btn btn-warning btn-xs button-reset' data-action="reset" data-placement="top"
+                    title='Restaurar'>
+                <i class='fas fa-undo'></i>
+            </button>
+            <button class='btn btn-danger btn-xs button-delete' data-action="delete" data-placement="top"
+                    title='Eliminar'>
+                <i class='fas fa-times'></i>
+            </button>
+        </div>
+    </div>
+}
+@*
+    <!--Estilos css de bootstrap-->
+    <link href="~/Content/css/StyleAdministrador.css" rel="stylesheet" type="text/css" />
+
+
+    <div class="container-fluid ">
+        <div class="row headerUno justify-content-between">
+            <div class="headerDoc col-auto">
+                <h3>Papelera</h3>
+            </div>
+        </div>
+
+        <div class="row headerBuscar justify-content-end">
+            <div class="col-auto offset-8">
+                <form action="" class="form-inline">
+                    <input type="text" class="form-control mr-1" placeholder="Buscar">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered table-striped table-hover table-sm">
+                    <thead class="thead-default">
+                    <th>IdCap</th>
+                    <th>Nombre</th>
+                    <th>Fecha de eliminación</th>
+                    <th></th>
+                    <th></th>
+                    </thead>
+
+                    @foreach (var p in Model)
+                    {
+                        <tr class="">
+                            <td @*style="display:none"*>@p.IdCarp</td>
+                            <td>@p.Carpeta</td>
+                            <td>@p.FechaEC</td>
+                            <td>
+                                <button class="btnTabla icon-trash" data-toggle="modal" data-target="#modalConfirmar" onclick="EliminarArchivo(@p.IdCarp)"></button>
+                            </td>
+                            <td>
+                                <button class="btnTabla icon-spin4"></button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <!--Ventana modal Confirmar eliminacion-->
+                <div>
+                    <div class="modal fade" id="modalConfirmar" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="">ADVERTENCIA</h5><h4 class="icon-attention"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-12" id="modal-content">
+                                                <p>El archivo se eliminara permanentemente</p>
+                                                <p>¿Está seguro?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="btnModalElimiar" data-request-url="@Url.Action("EliminarArchivo", "Administrador")">Aceptar</button>
+                                    <button class="btn btn-danger" data-dismiss="modal">Cancerlar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--fin ventana modal Nueva Carpera-->
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/Administrador/administrador.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+
+*@

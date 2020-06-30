@@ -1,0 +1,96 @@
+﻿@model List<GestionDocumentalAdmin.Models.TableViewModels.UbicarTableViewModel>
+@{
+    ViewBag.Title = "UbicarDocumentosR";
+
+}
+<link href="~/Content/css/StyleTimeLine.css" rel="stylesheet" type="text/css" />
+
+<div class="container-fluid ">
+    <div class="row headerUno justify-content-between">
+        <div class="headerDoc col-auto">
+            <h5>Ubicar documentos</h5>
+        </div>
+    </div>
+
+    <div class="row nombreDoc justify-content-between">
+        <div class="col-auto nombre ">
+            <h6>Documento: @ViewData["nombreDoc"] </h6>
+        </div>
+    </div>
+
+    <div class="row justify-content-around">
+        <div class="col areasRecorridas">
+            <h6>Areas recorridas</h6>
+
+            @*Acordeón*@
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="areasR" id="acordion" role="tablist" aria-multiselectable="false">
+                        @{
+                            int i = 0;
+                            foreach (var u in Model)
+                            {
+                                i++;
+                                int dias = 0;
+                                int horas,minutos = 0;
+                                string mostrarT = "";
+
+                                //Si es un día o más
+                                if (u.Tiempo >= 1440)
+                                {
+                                    dias = Convert.ToInt32(u.Tiempo) / 1440;
+                                    horas = Convert.ToInt32((u.Tiempo) % 60) / 24;
+                                    minutos = Convert.ToInt32(u.Tiempo % 60);
+                                    if(dias > 1)
+                                    {
+                                        mostrarT = " " + dias + " Días, " + horas.ToString("D2") + " : " + minutos.ToString("D2") + " horas";
+                                    }
+                                    else
+                                    {
+                                        mostrarT = " " + dias + " Día, " + horas.ToString("D2") + " : " + minutos.ToString("D2") + " horas";
+                                    }
+
+
+                                    //Si es menor que 1 día
+                                }else if (u.Tiempo <= 1440)
+                                {
+                                    dias = 0;
+                                    horas = Convert.ToInt32((u.Tiempo) / 60);
+                                    minutos = Convert.ToInt32(u.Tiempo % 60);
+                                    string fmat = horas.ToString("D2");
+                                    mostrarT = " "+ horas.ToString("D2") + " : " + minutos.ToString("D2") + " horas";
+                                }
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading+@i">
+                                        <a href="#collapse+@i" data-toggle="collapse" data-parent="#acordion" aria-expanded="true" aria-controls="collapse+@i">
+                                            <b style="font-size:16px">@u.Area</b>
+                                        </a>
+                                    </div>
+
+                                    <div id="collapse+@i" class="collapse" role="tabpanel" aria-labelledby="heading+@i">
+                                        <div class="card-block table">
+                                            <b>Proceso:</b> @u.Proceso<br />
+                                            <b>Encargado:</b> @u.Encargado<br />
+                                            <b>Fecha de recepcion:</b> @u.FechaI<br />
+                                            <b>Fecha de salida:</b> @u.FechaS<br />
+                                            <b>Tiempo en área:</b> @mostrarT
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+            @*---------------fin acordeón----------------------*@
+        </div>
+    </div>
+    @*<script src="~/Scripts/jquery-3.3.1.js"></script>*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    @*script src="~/Scripts/bootstrap.min.js"></script>*@
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+    <script src="~/Scripts/TimeLine/timeLine.js"></script>

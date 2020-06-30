@@ -1,0 +1,49 @@
+﻿.boton {
+    height: 60px;
+    text-align: center;
+}
+
+.links {
+    margin-left: 5%;
+    padding-top: 10%;
+}
+
+.boton a {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    background-color: #5f6ee4;
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    padding-bottom: 12.5px;
+    padding-top: 12.5px;
+}
+
+.boton li img {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.boton li {
+    display: block;
+    text-decoration: none;
+    background-color: #5f6ee4;
+    width: 170px;
+}
+
+a:hover {
+    text-decoration: none;
+    background-color: #2b9dad;
+}
+
+.bienvenida h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}

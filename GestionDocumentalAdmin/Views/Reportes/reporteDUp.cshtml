@@ -1,0 +1,61 @@
+﻿<!--Vista que convertimos a PDF-->
+
+@model List<GestionDocumentalAdmin.Items.ReporteDUpItem>
+@{
+    ViewBag.Title = "reporteDUp";
+}
+
+@{
+    Layout = null;
+}
+
+<link href=@Server.MapPath("~/Content/css/StyleReportesP.css") rel="stylesheet" />
+
+<div class="container-fluid ">
+
+    <div class="row">
+        <div class="col">
+
+
+            <div class="row logoA">
+                <div class="col-auto">
+                    <img src=@Server.MapPath("~/Content/img/Apaneca-logo.png") />
+                </div>
+            </div>
+
+            <div id="nombreReporte">
+                <h6>REPORTE DOCUMENTOS CARGADOS POR USUARIO</h6>
+            </div>
+
+            <table class="table table-bordered table-striped table-hover table-sm">
+                <thead class="thead-default">
+                <th>#</th>
+                <th>Documento</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                </thead>
+                @{
+                    int c = 0;
+
+                    foreach (var d in Model)
+                    {
+
+                        c++;
+
+                        <tr class="">
+                            <td>@c</td>
+                            <td>@d.Documento</td>
+                            <td>@d.Fecha</td>
+                            <td>@d.Usuario</td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <br />
+    </div>
+</div>
+
+<link href=@Server.MapPath("~/Content/bootstrap.css") rel="stylesheet" />
+

@@ -1,0 +1,73 @@
+﻿body {
+    
+    padding: 0px;
+}
+
+.columnaAccesos .contenedor {
+    margin-left: 160px;
+}
+
+.columnaAccesos .contenedor .boton {
+        height: 100px;
+        text-align: center;
+}
+
+.columnaAccesos .contenedor .boton a {
+            font-size: 18px;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            background-color: #5f6ee4;
+            width: 100%;
+            display: block;
+            text-decoration:none;
+            cursor: pointer;
+}
+
+.columnaAccesos .contenedor .boton li img {
+            padding-top: 20px;
+            padding-bottom: 5px;
+            padding-left: 30px;
+            padding-right: 30px;
+            background-color: #fff;
+            width: 100%;
+}
+
+.columnaAccesos .contenedor .boton li {
+            display: block;
+            text-decoration: none;
+            background-color: #5f6ee4;
+            width: 170px;
+}
+
+.columnaAccesos .contenedor a:hover {
+        text-decoration: none;
+        background-color: #2b9dad;
+}
+
+.columnaAccesos {
+    padding-left: 0px;
+    margin: 0px;
+    padding-top: 150px;
+    padding-bottom: 250px;
+}
+
+/*-----------Reporte documentos en seguimiento--------------*/
+
+#nombreReporte {
+    background-color: #000000;
+    color: #ffffff;
+    height: 50px;
+}
+
+#nombreReporte h6{
+    padding-left:10px;
+    padding-top: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logoA {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

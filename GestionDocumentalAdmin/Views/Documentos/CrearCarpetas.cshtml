@@ -1,0 +1,29 @@
+﻿@model GestionDocumentalAdmin.Models.ViewModels.CrearCarpetasViewModel
+@{
+    ViewBag.Title = "CrearCarpetas";
+    Layout = null;
+    @*@ViewBag.Message*@
+}
+
+<h5 class="modal-title">NUEVA CARPETA</h5>
+
+@using (Html.BeginForm("CrearCarpetas", "Documentos", FormMethod.Post, new { role = "form", @class = "formNusuario", @name = "formularioCarpeta" }))
+{
+
+    @Html.ValidationMessage("erro", new { @class = "text-danger" })
+
+    @Html.LabelFor(c => c.Nombre)
+    @Html.TextBoxFor(c => c.Nombre, new { @class = "form-control", @id = "TextBoxNombre" })
+    @Html.ValidationMessage("Nombre", new { @class = "text-danger" })<br />
+
+
+    @Html.LabelFor(c => c.Descripcion)
+    @Html.TextBoxFor(c => c.Descripcion, new { @class = "form-control", @id = "TextBoxDescripcion" })
+    @Html.ValidationMessage("Descripcion", new { @class = "text-danger" })<br />
+    <label id="error"></label>
+
+}
+<button class="btn btnAdd btn-primary icon-login-2" type="submit" id="btnAceptar_Modal">Aceptar</button>
+@Html.ActionLink("Cancelar", "Documentos_Principal", "Documentos", null, new { @class = "btn btn-danger icon-cancel" })
+
+<script src="~/Scripts/DocumentosJs/documentos.js"></script>

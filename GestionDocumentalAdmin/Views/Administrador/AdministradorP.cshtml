@@ -1,0 +1,79 @@
+﻿@using GestionDocumentalAdmin.Commons;
+@{
+    ViewBag.Title = "Administrador";
+}
+
+@section Styles
+{
+    <link href="~/Content/css/StyleAdministrador.css" rel="stylesheet" type="text/css" />
+
+}
+
+    <div class="row links justify-content-between" style="margin-top: 64px;">
+
+        
+            <div class="col-md-3 boton">
+                <li>
+                    <img src="~/Content/img/usuarios.svg" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Usuarios))
+                    {
+                        @Html.ActionLink("USUARIOS", "AdminUsuario", "Administrador")
+                    }
+                    else {
+                    <a href="#" style="color: #808080;">USUARIOS</a>
+                    }
+                
+                </li>
+            </div>
+        
+
+        
+            <div class="col-md-3 boton">
+                <li>
+                    <img src="~/Content/img/roles.svg" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Roles))
+                    {
+                        @Html.ActionLink("ROLES", "Roles", "Administrador")
+                    }
+                    else
+                    {
+                    <a href="#" style="color: #808080; padding-bottom:50px;">ROLES</a>
+                    }
+                </li>
+            </div>
+        
+
+       
+            <div class="col-md-3 boton">
+                <li>
+                    <img src="~/Content/img/areas.svg" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Areas))
+                    {
+                        @Html.ActionLink("ÁREAS", "Areas", "Administrador")
+                    }
+                    else
+                    {
+                    <a href="#" style="color: #808080;">ÁREAS</a>
+                    }
+                </li>
+            </div>
+        
+
+        
+            <div class="col-md-3 boton">
+                <li>
+                    <img src="~/Content/img/Recycle_Bin_Empty.png" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Papelera))
+                    {
+                        @Html.ActionLink("PAPELERA", "Papelera", "Administrador")
+                    }
+                    else
+                    {
+                    <a href="#" style="color: #808080;">PAPELERA</a>
+                    }
+                </li>
+            </div>
+        
+        </div>
+
+

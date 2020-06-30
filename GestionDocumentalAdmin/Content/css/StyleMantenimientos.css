@@ -1,0 +1,86 @@
+﻿body {
+    padding: 0px;
+}
+
+
+.columnaAccesos .contenedor {
+    margin-left: 160px;
+}
+
+.columnaAccesos .contenedor .boton {
+    height: 100px;
+    text-align: center;
+}
+
+.columnaAccesos .contenedor .boton a {
+      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+      background-color: #5f6ee4;
+      width: 100%;
+      display: block;
+      text-decoration: none;
+}
+
+.columnaAccesos .contenedor .boton li img {
+       padding-top: 20px;
+       padding-bottom: 5px;
+       padding-left: 30px;
+       padding-right: 30px;
+       background-color: #fff;
+       width: 100%;
+}
+
+.columnaAccesos .contenedor .boton li {
+      display: block;
+      text-decoration: none;
+      background-color: #5f6ee4;
+      width: 170px;
+}
+
+.columnaAccesos .contenedor a:hover {
+     text-decoration: none;
+     background-color: #2b9dad;
+}
+
+.columnaAccesos {
+    padding-left: 0px;
+    margin: 0px;
+    padding-top: 150px;
+    padding-bottom: 250px;
+}
+
+.bienvenida h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/*--------Estilos individuales------*/
+.btnTipoD {
+    padding-bottom: 13px;
+    padding-top: 13px;
+    align-content: center;
+}
+/*------------------FORMULARIOS MANTENIMIENTOS------------------*/
+
+.form-group label {
+    font-weight: bold;
+}
+
+.formNusuario > label {
+    font-weight: bold;
+}
+
+.formNusuario .btn {
+    margin-top: 20px;
+}
+
+.formNusuario .btnCancel {
+    background-color: #f23d3d;
+}
+
+    .formNusuario .btnCancel:hover {
+        background-color: #f33030;
+    }

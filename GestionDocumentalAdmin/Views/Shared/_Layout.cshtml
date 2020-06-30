@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title> SGD_Apaneca | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+</head>
+
+<body>
+    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <!-- sidebar-content  -->
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="@Url.Action("UserDashBoard", "Home")">GESTIÓN DOCUMENTAL</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-times" id="hadle-menu"></i>
+                    </div>
+                </div>
+
+                <!-- sidebar-header  -->
+                <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                             alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            @SessionHelper.GetUser().nombre
+                            <strong>@SessionHelper.GetUser().apellido</strong>
+                        </span>
+                        <span class="user-role">@SessionHelper.GetUser().rol</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- sidebar-menu  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("UserDashBoard", "Home")">
+                                <i class="fas fa-book"></i>
+                                <span>Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Documentos_Principal", "Documentos")">
+                                <i class="fas fa-calendar"></i>
+                                <span>Documentos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TimeLP", "TimeLine")">
+                                <i class="fas fa-folder"></i>
+                                <span>Timeline</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ReportesP", "Reportes")">
+                                <i class="fas fa-folder"></i>
+                                <span>Reportes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("MantenimientosP", "Mantenimientos")">
+                                <i class="fas fa-folder"></i>
+                                <span>Mantenimientos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AdministradorP", "Administrador")">
+                                <i class="fas fa-folder"></i>
+                                <span>Administración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Seccion principal -->
+        <main class="page-content">
+            <div id="overlay" class="overlay"></div>
+            <div class="container-fluid h-100">
+                <!-- fila para cabecera-->
+                <div class="row h-100 justify-content-center align-items-center cabecera">
+                    <!-- logo alcaldia-->
+                    <div class="col-md-1 p-4">
+                        <img class="img-responsive center-block" id="main-logo" src="~/Content/img/Apaneca-logo.png">
+                    </div>
+                    <!-- nombre alcaldia-->
+                    <div class="col-md-8 nombre-alcaldia">
+                        <h1>ALCALDÍA MUNICIPAL APANECA</h1>
+                    </div>
+
+                    <!-- Icono de notificación -->
+                    <!--<div class="col-md-1">
+        <div class="dropdown sidebar-footer">
+            <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #f6f9ff;">
+                <i class="fa fa-bell"></i>
+                <span class="badge badge-pill badge-warning notification">3</span>
+            </a>
+        </div>
+    </div> -->
+                    
+
+                    <!-- Icono de configuración -->
+                    <div class="col-md-1">
+                        <div class="dropdown col-md-8">
+                            <a href="#" class="dropUser" id="menuUser" type="button" data-toggle="dropdown" style="color: #f6f9ff;">
+                                <i class="fa fa-cog"></i>
+                                <span class="badge-sonar"></span>
+                            </a>
+                            <div class="dropdown-menu p-3 dropdown-menu-right drop" role="dialog" aria-labelledby="menuUser" id="modal-content">
+                                @*Vista UpdateDatos*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Icono de logout-->
+                    <div class="col-md-1 icono-salir">
+                        <div>
+                            <a href="@Url.Action("LogOut", "Home") " style="color: #f6f9ff;">
+                                <i class="fa fa-power-off"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Contenido-->
+                <div class="container-fluid">
+                    <div class="content-header">
+                        @RenderSection("titleView", required: false)
+                    </div>
+
+                    <div class="container container-dinamic">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Proyecto de Graduación</p>
+            </footer>
+        </main>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", required: false)
+</body>
+@RenderSection("utilHtml", required: false)
+</html>

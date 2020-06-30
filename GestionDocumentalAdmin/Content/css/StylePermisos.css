@@ -1,0 +1,11 @@
+﻿body {
+}
+
+.thead-dark th {
+    color: #fff;
+    background-color: #343A40;
+    height: 50px;
+    border-color: #454d55;
+    padding-right: 30px;
+    padding-left: 10px;
+}

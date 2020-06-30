@@ -1,0 +1,59 @@
+﻿@model GestionDocumentalAdmin.Models.Models.Usuarios
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/flat-ui.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fontawesome-all.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/StyleIndex.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+
+                    <h5 class="card-title text-center">SISTEMA DE GESTIÓN DOCUMENTAL</h5>
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-signin" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        <div class="form-label-group">
+                            @Html.TextBoxFor(a => a.usuario, new { @class = "form-control", placeholder = "", required = true, autofocus = true })
+                            @Html.LabelFor(a => a.usuario, "Usuario")
+                            @Html.ValidationMessageFor(a => a.usuario)
+                        </div>
+
+                        <div class="form-label-group">
+                            @Html.PasswordFor(a => a.clave, new { @class = "form-control", placeholder = "", required = true })
+                            @Html.LabelFor(a => a.clave, "Contraseña")
+                            @Html.ValidationMessageFor(a => a.clave)
+                        </div>
+
+                        if (@ViewBag.Message != null)
+                        {
+                            <div class="form-label-group has-error">
+                                <span class="help-block">@ViewBag.Message</span>
+                            </div>
+                        }
+
+                        <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Recordar contraseña</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="iButton">Login</button>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.slim.min.js" type="text/javascript"></script>

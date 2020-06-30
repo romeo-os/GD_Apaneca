@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="idArea" />
+    </Key>
+    <Property Name="idArea" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="nombre" MaxLength="50" Type="varchar" />
+    <Property Name="funcion" MaxLength="100" Type="varchar" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="Carpeta">
+    <Key>
+      <PropertyRef Name="idCarpeta" />
+    </Key>
+    <Property Name="idCarpeta" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="rutaCarpeta" MaxLength="100" Type="varchar" />
+    <Property Name="nombre" MaxLength="50" Type="varchar" />
+    <Property Name="descripcion" MaxLength="100" Type="varchar" />
+    <Property Name="created_at" Type="date" />
+    <Property Name="updated_at" Type="date" />
+    <Property Name="deleted_at" Type="date" />
+  </EntityType>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="idDocumento" />
+    </Key>
+    <Property Name="idDocumento" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="nombreDocumentos" MaxLength="100" Type="varchar" />
+    <Property Name="rutaDocumento" MaxLength="100" Type="varchar" />
+    <Property Name="created_at" Type="date" />
+    <Property Name="updated_at" Type="date" />
+    <Property Name="deleted_at" Type="date" />
+    <Property Name="idUsuario" Type="int" />
+    <Property Name="idTipoDocumento" Type="int" />
+    <Property Name="idFlujoDocumento" Type="int" />
+    <Property Name="idCarpeta" Type="int" />
+  </EntityType>
+  <EntityType Name="FlujoDocumento">
+    <Key>
+      <PropertyRef Name="idFlujoDocumento" />
+    </Key>
+    <Property Name="idFlujoDocumento" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="idProcedimiento" Type="int" />
+    <Property Name="idArea" Type="int" />
+  </EntityType>
+  <EntityType Name="HistorialLog">
+    <Key>
+      <PropertyRef Name="idHistorialLog" />
+    </Key>
+    <Property Name="idHistorialLog" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="hora" Precision="7" Type="time" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="Historico">
+    <Key>
+      <PropertyRef Name="idHistorico" />
+    </Key>
+    <Property Name="idHistorico" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="idDocumento" Type="int" />
+    <Property Name="idProcedimiento" Type="int" />
+    <Property Name="fechaInicio" Type="datetime" />
+    <Property Name="fechaFin" Type="datetime" />
+    <Property Name="idUsuario" Type="int" />
+  </EntityType>
+  <EntityType Name="PermisoDenegado">
+    <Key>
+      <PropertyRef Name="idPermisoD" />
+    </Key>
+    <Property Name="idPermisoD" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="idRol" Type="int" />
+    <Property Name="idPermiso" Type="int" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="idPermiso" />
+    </Key>
+    <Property Name="idPermiso" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="modulo" MaxLength="50" Type="varchar" />
+    <Property Name="descripcion" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Procedimientos">
+    <Key>
+      <PropertyRef Name="idProcedimiento" />
+    </Key>
+    <Property Name="idProcedimiento" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="procedimiento" MaxLength="50" Type="varchar" />
+    <Property Name="duracion" MaxLength="50" Type="varchar" />
+    <Property Name="prioridad" MaxLength="50" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="rol" MaxLength="20" Type="varchar" />
+  </EntityType>
+  <EntityType Name="TipoDocumento">
+    <Key>
+      <PropertyRef Name="idTipoDocumento" />
+    </Key>
+    <Property Name="idTipoDocumento" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="tipoDocumento" MaxLength="50" Type="varchar" />
+    <Property Name="descripcionTipoDocumento" MaxLength="100" Type="varchar" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="nombre" MaxLength="50" Type="varchar" />
+    <Property Name="apellido" MaxLength="50" Type="varchar" />
+    <Property Name="usuario" MaxLength="50" Type="varchar" />
+    <Property Name="clave" MaxLength="50" Type="varchar" />
+    <Property Name="email" MaxLength="50" Type="varchar" />
+    <Property Name="estado" MaxLength="25" Type="varchar" />
+    <Property Name="created_at" Type="datetime" />
+    <Property Name="updated_at" Type="datetime" />
+    <Property Name="deleted_at" Type="datetime" />
+    <Property Name="idRol" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'gd_admin_db.sys.database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+    <Property Name="start_ip_address" Nullable="false" MaxLength="45" Type="varchar" />
+    <Property Name="end_ip_address" Nullable="false" MaxLength="45" Type="varchar" />
+    <Property Name="create_date" Nullable="false" Type="datetime" />
+    <Property Name="modify_date" Nullable="false" Type="datetime" />
+  </EntityType>
+  <Association Name="fk_idArea">
+    <End Type="Self.Area" Multiplicity="0..1" Role="Area" />
+    <End Type="Self.FlujoDocumento" Multiplicity="*" Role="FlujoDocumento" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="idArea" />
+      </Principal>
+      <Dependent Role="FlujoDocumento">
+        <PropertyRef Name="idArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idCarpeta">
+    <End Type="Self.Carpeta" Multiplicity="0..1" Role="Carpeta" />
+    <End Type="Self.Documentos" Multiplicity="*" Role="Documentos" />
+    <ReferentialConstraint>
+      <Principal Role="Carpeta">
+        <PropertyRef Name="idCarpeta" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idCarpeta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idDocumento">
+    <End Type="Self.Documentos" Multiplicity="0..1" Role="Documentos" />
+    <End Type="Self.Historico" Multiplicity="*" Role="Historico" />
+    <ReferentialConstraint>
+      <Principal Role="Documentos">
+        <PropertyRef Name="idDocumento" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="idDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idFlujoDocumento">
+    <End Type="Self.FlujoDocumento" Multiplicity="0..1" Role="FlujoDocumento" />
+    <End Type="Self.Documentos" Multiplicity="*" Role="Documentos" />
+    <ReferentialConstraint>
+      <Principal Role="FlujoDocumento">
+        <PropertyRef Name="idFlujoDocumento" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idFlujoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idProcedimiento">
+    <End Type="Self.Procedimientos" Multiplicity="0..1" Role="Procedimientos" />
+    <End Type="Self.FlujoDocumento" Multiplicity="*" Role="FlujoDocumento" />
+    <ReferentialConstraint>
+      <Principal Role="Procedimientos">
+        <PropertyRef Name="idProcedimiento" />
+      </Principal>
+      <Dependent Role="FlujoDocumento">
+        <PropertyRef Name="idProcedimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idProcedimiento2">
+    <End Type="Self.Procedimientos" Multiplicity="0..1" Role="Procedimientos" />
+    <End Type="Self.Historico" Multiplicity="*" Role="Historico" />
+    <ReferentialConstraint>
+      <Principal Role="Procedimientos">
+        <PropertyRef Name="idProcedimiento" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="idProcedimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idRol">
+    <End Type="Self.Roles" Multiplicity="0..1" Role="Roles" />
+    <End Type="Self.Usuarios" Multiplicity="*" Role="Usuarios" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idRol2">
+    <End Type="Self.Roles" Multiplicity="0..1" Role="Roles" />
+    <End Type="Self.PermisoDenegado" Multiplicity="*" Role="PermisoDenegado" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="PermisoDenegado">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idTipoDocumento">
+    <End Type="Self.TipoDocumento" Multiplicity="0..1" Role="TipoDocumento" />
+    <End Type="Self.Documentos" Multiplicity="*" Role="Documentos" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumento">
+        <PropertyRef Name="idTipoDocumento" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idTipoDocumento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idUsuario">
+    <End Type="Self.Usuarios" Multiplicity="0..1" Role="Usuarios" />
+    <End Type="Self.HistorialLog" Multiplicity="*" Role="HistorialLog" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="HistorialLog">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idUsuario2">
+    <End Type="Self.Usuarios" Multiplicity="0..1" Role="Usuarios" />
+    <End Type="Self.Area" Multiplicity="*" Role="Area" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Area">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idUsuario3">
+    <End Type="Self.Usuarios" Multiplicity="0..1" Role="Usuarios" />
+    <End Type="Self.Documentos" Multiplicity="*" Role="Documentos" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idUsuario4">
+    <End Type="Self.Usuarios" Multiplicity="0..1" Role="Usuarios" />
+    <End Type="Self.Historico" Multiplicity="*" Role="Historico" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Historico">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Permiso">
+    <End Type="Self.Permisos" Multiplicity="0..1" Role="Permisos" />
+    <End Type="Self.PermisoDenegado" Multiplicity="*" Role="PermisoDenegado" />
+    <ReferentialConstraint>
+      <Principal Role="Permisos">
+        <PropertyRef Name="idPermiso" />
+      </Principal>
+      <Dependent Role="PermisoDenegado">
+        <PropertyRef Name="idPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carpeta" EntityType="Self.Carpeta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlujoDocumento" EntityType="Self.FlujoDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialLog" EntityType="Self.HistorialLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historico" EntityType="Self.Historico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PermisoDenegado" EntityType="Self.PermisoDenegado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedimientos" EntityType="Self.Procedimientos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumento" EntityType="Self.TipoDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+      <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_idArea" Association="Self.fk_idArea">
+      <End EntitySet="Area" Role="Area" />
+      <End EntitySet="FlujoDocumento" Role="FlujoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idCarpeta" Association="Self.fk_idCarpeta">
+      <End EntitySet="Carpeta" Role="Carpeta" />
+      <End EntitySet="Documentos" Role="Documentos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idDocumento" Association="Self.fk_idDocumento">
+      <End EntitySet="Documentos" Role="Documentos" />
+      <End EntitySet="Historico" Role="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idFlujoDocumento" Association="Self.fk_idFlujoDocumento">
+      <End EntitySet="FlujoDocumento" Role="FlujoDocumento" />
+      <End EntitySet="Documentos" Role="Documentos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idProcedimiento" Association="Self.fk_idProcedimiento">
+      <End EntitySet="Procedimientos" Role="Procedimientos" />
+      <End EntitySet="FlujoDocumento" Role="FlujoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idProcedimiento2" Association="Self.fk_idProcedimiento2">
+      <End EntitySet="Procedimientos" Role="Procedimientos" />
+      <End EntitySet="Historico" Role="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idRol" Association="Self.fk_idRol">
+      <End EntitySet="Roles" Role="Roles" />
+      <End EntitySet="Usuarios" Role="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idRol2" Association="Self.fk_idRol2">
+      <End EntitySet="Roles" Role="Roles" />
+      <End EntitySet="PermisoDenegado" Role="PermisoDenegado" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idTipoDocumento" Association="Self.fk_idTipoDocumento">
+      <End EntitySet="TipoDocumento" Role="TipoDocumento" />
+      <End EntitySet="Documentos" Role="Documentos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idUsuario" Association="Self.fk_idUsuario">
+      <End EntitySet="Usuarios" Role="Usuarios" />
+      <End EntitySet="HistorialLog" Role="HistorialLog" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idUsuario2" Association="Self.fk_idUsuario2">
+      <End EntitySet="Usuarios" Role="Usuarios" />
+      <End EntitySet="Area" Role="Area" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idUsuario3" Association="Self.fk_idUsuario3">
+      <End EntitySet="Usuarios" Role="Usuarios" />
+      <End EntitySet="Documentos" Role="Documentos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idUsuario4" Association="Self.fk_idUsuario4">
+      <End EntitySet="Usuarios" Role="Usuarios" />
+      <End EntitySet="Historico" Role="Historico" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Permiso" Association="Self.fk_Permiso">
+      <End EntitySet="Permisos" Role="Permisos" />
+      <End EntitySet="PermisoDenegado" Role="PermisoDenegado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,52 @@
+﻿@using GestionDocumentalAdmin.Commons;
+@{
+    ViewBag.Title = "Reportes";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/Reportes/crearReporte.js" type="text/javascript"></script>
+}
+
+@section styles
+{
+    <link href="~/Content/css/StyleReportesP.css" rel="stylesheet" type="text/css" />
+}
+
+
+
+<div class="row justify-content-center">
+    <div class="columnaAccesos col">
+        <div class="contenedor d-flex flex-wrap">
+            <div class="col boton">
+                <li>
+                    <img src="~/Content/img/docSubDes.svg" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestión_de_reportes))
+                    {
+                        @*@Html.ActionLink("DOC. SUBIDOS-DESCARGADOS", "ReportesP", "Reportes")*@
+                        <a id="btnRepDUp">DOC. SUBIDOS POR USUARIO</a>
+                    }
+                    else
+                    {
+                        <a href="#" style="color:#808080;">DOC. SUBIDOS-DESCARGADOS</a>
+                    }
+                </li>
+            </div>
+            <div class="col boton">
+                <li>
+                    <img src="~/Content/img/docSeguimiento.svg" />
+                    @if (FrontUser.TienePermiso(RolesPermisos.Gestión_de_reportes))
+                    {
+                        <a id="btnRepDS">DOC. EN SEGUIMIENTO</a>
+                    }
+                    else
+                    {
+                        <a href="#" style="color:#808080;">DOC. EN SEGUIMIENTO</a>
+                    }
+                </li>
+            </div>
+
+        </div>
+    </div>
+</div>
+

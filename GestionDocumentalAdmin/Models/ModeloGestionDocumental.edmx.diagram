@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ac2e90782ad48739e7ae90389253391" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Area" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Carpeta" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Documento" PointX="9.75" PointY="4.625" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.FlujoDocumento" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.HistorialLog" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Historico" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.PermisoDenegado" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Permiso" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Procedimiento" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Role" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TipoDocumento" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Usuario" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.database_firewall_rules" Width="1.5" PointX="11.25" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.fk_idArea" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idUsuario2" ManuallyRouted="false" />
+        <AssociationConnector ManuallyRouted="false" Association="DatabaseModel.fk_idCarpeta" />
+        <AssociationConnector ManuallyRouted="false" Association="DatabaseModel.fk_idDocumento" />
+        <AssociationConnector ManuallyRouted="false" Association="DatabaseModel.fk_idFlujoDocumento" />
+        <AssociationConnector ManuallyRouted="false" Association="DatabaseModel.fk_idTipoDocumento" />
+        <AssociationConnector ManuallyRouted="false" Association="DatabaseModel.fk_idUsuario3" />
+        <AssociationConnector Association="DatabaseModel.fk_idProcedimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idUsuario" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idProcedimiento2" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idUsuario4" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idRol2" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_Permiso" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.fk_idRol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

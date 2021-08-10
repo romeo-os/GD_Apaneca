@@ -14,11 +14,12 @@
 
 
 
-<div class="row">
-    <div class="columnaAccesos col-10">
+<div class="container">
+    <div class="columnaAccesos col">
         <div class="contenedor d-flex flex-wrap">
             <div class="col boton">
-                <li><img src="~/Content/img/ubicarDoc.svg" />
+                <li>
+                    <img src="~/Content/img/ubicarDoc.svg" />
                 @if (FrontUser.TienePermiso(RolesPermisos.Ubicar_documentos))
                 {
                     @Html.ActionLink("UBICAR DOCUMENTO", "UbicarDocumentosP", "TimeLine")
@@ -29,7 +30,8 @@
                 </li>
             </div>
             <div class="col boton">
-                <li @*id="button-recibir"*@><img src="~/Content/img/recibirDoc.svg" />
+                <li @*id="button-recibir"*@>
+                    <img src="~/Content/img/recibirDoc.svg" />
                 @if (FrontUser.TienePermiso(RolesPermisos.Recibir_documentos))
                 {
                     <a id="button-recibir">RECIBIR DOCUMENTO</a>

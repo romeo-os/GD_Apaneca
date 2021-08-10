@@ -12,21 +12,22 @@
 {
     <h2>BIENVENIDO AL SISTEMA DE GESTIÓN DE DOCUMENTOS</h2>
 }
+    <div class="container-fluid">
+        <div class="row links " style="margin-top: 64px;">
+            <div class="col boton">
+                <li><img src="~/Content/img/document.svg" />@Html.ActionLink("DOCUMENTOS", "Documentos_Principal", "Documentos")</li>
+            </div>
 
-<div class="row links" style="margin-top: 64px;">
-    <div class="col-md-3 boton">
-        <li><img src="~/Content/img/document.svg" />@Html.ActionLink("DOCUMENTOS", "Documentos_Principal", "Documentos")</li>
-    </div>
+            <div class="col boton">
+                <li><img src="~/Content/img/escaner.svg" />@Html.ActionLink("SCANNER", "ScannerView", "Documentos")</li>
+            </div>
 
-    <div class="col-md-3 boton">
-        <li><img src="~/Content/img/escaner.svg" />@Html.ActionLink("SCANNER", "ScannerView", "Documentos")</li>
-    </div>
+            <div class="col boton">
+                <li><img src="~/Content/img/timeline.svg" />@Html.ActionLink("TIMELINE", "TimeLP", "TimeLine")</li>
+            </div>
 
-    <div class="col-md-3 boton">
-        <li><img src="~/Content/img/timeline.svg" />@Html.ActionLink("TIMELINE", "TimeLP", "TimeLine")</li>
+            <div class="col boton">
+                <li><img src="~/Content/img/report.svg" />@Html.ActionLink("REPORTES", "ReportesP", "Reportes")</li>
+            </div>
+        </div>
     </div>
-
-    <div class="col-md-3 boton">
-        <li><img src="~/Content/img/report.svg" />@Html.ActionLink("REPORTES", "ReportesP", "Reportes")</li>
-    </div>
-</div>

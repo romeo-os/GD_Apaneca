@@ -45,64 +45,65 @@
 {
     <h2>Scanear documento</h2>
 }
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 scanner-panel h-100">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-info" role="alert">
+                            Puede escanear documentos y guardarlos directamente desde este formulario.
+                            Se necesita tener instalado la aplicación para acceder al escaner de su computadora, <a href="http://asprise.azureedge.net/scanapp/scan-setup.exe" class="alert-link">haga clic aquí</a> para descargalo.<br />
+                            Escanee un archivo y guardelo en formato <b>PDF</b>; el archivo puede tener varias páginas.
+                        </div>
 
-<div class="row">
-    <div class="col-md-8 scanner-panel h-100">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="alert alert-info" role="alert">
-                    Puede escanear documentos y guardarlos directamente desde este formulario. 
-                    Se necesita tener instalado la aplicación para acceder al escaner de su computadora, <a href="http://asprise.azureedge.net/scanapp/scan-setup.exe" class="alert-link">haga clic aquí</a> para descargalo.<br />
-                    Escanee un archivo y guardelo en formato <b>PDF</b>; el archivo puede tener varias páginas. 
+                        <button class="btn btn-primary btn-md button-create" style="margin-bottom:10px;">
+                            <i class="fa fa-plus"></i>
+                            Escanear documento
+                        </button>
+
+                        <div id="images"></div>
+                        <div id="server_response"></div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-md-4">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "modal-form", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
 
-                <button class="btn btn-primary btn-md button-create" style="margin-bottom:10px;">
-                    <i class="fa fa-plus"></i>
-                    Escanear documento
-                </button>
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nombreDocumentos, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.nombreDocumentos, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.nombreDocumentos, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
 
-                <div id="images"></div>
-                <div id="server_response"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.idTipoDocumento, "Tipo", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("idTipoDocumento", ViewData["docType"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.idTipoDocumento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.idCarpeta, "Carpeta", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("idCarpeta", ViewData["folder"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.idCarpeta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Guardar" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "modal-form", role = "form", enctype = "multipart/form-data" }))
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-horizontal">
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(model => model.nombreDocumentos, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.nombreDocumentos, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.nombreDocumentos, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.idTipoDocumento, "Tipo", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("idTipoDocumento", ViewData["docType"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.idTipoDocumento, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.idCarpeta, "Carpeta", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("idCarpeta", ViewData["folder"] as SelectList, "Seleccione", htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.idCarpeta, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar" class="btn btn-secondary" />
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</div>

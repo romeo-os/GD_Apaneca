@@ -8,27 +8,26 @@
     <link href="~/Content/css/StyleAdministrador.css" rel="stylesheet" type="text/css" />
 
 }
+    <div class="container-fluid">
+        <div class="row links" style="margin-top: 64px;">
 
-    <div class="row links justify-content-between" style="margin-top: 64px;">
-
-        
-            <div class="col-md-3 boton">
+            <div class="col boton">
                 <li>
                     <img src="~/Content/img/usuarios.svg" />
                     @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Usuarios))
                     {
                         @Html.ActionLink("USUARIOS", "AdminUsuario", "Administrador")
                     }
-                    else {
-                    <a href="#" style="color: #808080;">USUARIOS</a>
+                    else
+                    {
+                        <a href="#" style="color: #808080;">USUARIOS</a>
                     }
-                
+
                 </li>
             </div>
-        
 
-        
-            <div class="col-md-3 boton">
+
+            <div class="col boton">
                 <li>
                     <img src="~/Content/img/roles.svg" />
                     @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Roles))
@@ -37,14 +36,14 @@
                     }
                     else
                     {
-                    <a href="#" style="color: #808080; padding-bottom:50px;">ROLES</a>
+                        <a href="#" style="color: #808080; padding-bottom:50px;">ROLES</a>
                     }
                 </li>
             </div>
-        
 
-       
-            <div class="col-md-3 boton">
+
+
+            <div class="col boton">
                 <li>
                     <img src="~/Content/img/areas.svg" />
                     @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Areas))
@@ -53,14 +52,14 @@
                     }
                     else
                     {
-                    <a href="#" style="color: #808080;">ÁREAS</a>
+                        <a href="#" style="color: #808080;">ÁREAS</a>
                     }
                 </li>
             </div>
-        
 
-        
-            <div class="col-md-3 boton">
+
+
+            <div class="col boton">
                 <li>
                     <img src="~/Content/img/Recycle_Bin_Empty.png" />
                     @if (FrontUser.TienePermiso(RolesPermisos.Gestionar_Papelera))
@@ -69,11 +68,11 @@
                     }
                     else
                     {
-                    <a href="#" style="color: #808080;">PAPELERA</a>
+                        <a href="#" style="color: #808080;">PAPELERA</a>
                     }
                 </li>
             </div>
-        
-        </div>
 
+        </div>
+    </div>
 
